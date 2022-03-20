@@ -31,6 +31,16 @@
           buildInputs = [ pkgs.zlib ];
         };
 
+        packages.ld = pkgs.stdenv.mkDerivation {
+          pname = "agb-ld";
+          version = "2.31-agb1";
+          src = ./.;
+          dontConfigure = true;
+          buildPhase = ''make ld-all prefix=$out'';
+          installPhase = ''make ld-install-strip prefix=$out'';
+          buildInputs = [ pkgs.zlib ];
+        };
+
         defaultPackage = packages.binutils;
       };
     in 
