@@ -31,3 +31,4 @@ ld/ld-new
 ld/ldscripts/*
 
 .idea/
+/result
