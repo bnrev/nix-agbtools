@@ -298,9 +298,9 @@ ld-all: ld-objs bfd-all libiberty-all
 ld-clean: ld-configure
 	@$(MAKE) -C ld clean $(SUBSUBMAKEFLAGS)
 ld-install: ld-all
-	@$(MAKE) -C ld install prefix=$(abspath $(prefix))/tools/binutils $(SUBSUBMAKEFLAGS)
+	@$(MAKE) -C ld install prefix=$(abspath $(prefix)) $(SUBSUBMAKEFLAGS)
 ld-install-strip: ld-all
-	@$(MAKE) -C ld install-strip prefix=$(abspath $(prefix))/tools/binutils $(SUBSUBMAKEFLAGS)
+	@$(MAKE) -C ld install-strip prefix=$(abspath $(prefix)) $(SUBSUBMAKEFLAGS)
 	@printf "Done ld-install-strip\n\n\n";
 
 binutils-configure:
