@@ -316,9 +316,9 @@ binutils-all: binutils-objs bfd-all libiberty-all
 binutils-clean: binutils-configure
 	@$(MAKE) -C binutils clean $(SUBSUBMAKEFLAGS)
 binutils-install: binutils-all
-	@$(MAKE) -C binutils install prefix=$(abspath $(prefix))/tools/binutils  $(SUBSUBMAKEFLAGS)
+	@$(MAKE) -C binutils install prefix=$(abspath $(prefix))  $(SUBSUBMAKEFLAGS)
 binutils-install-strip: binutils-all
-	@$(MAKE) -C binutils install-strip prefix=$(abspath $(prefix))/tools/binutils $(SUBSUBMAKEFLAGS)
+	@$(MAKE) -C binutils install-strip prefix=$(abspath $(prefix)) $(SUBSUBMAKEFLAGS)
 	@printf "Done binutils-install-strip\n\n\n";
 
 gas-time:
