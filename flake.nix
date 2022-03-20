@@ -11,17 +11,27 @@
       let
         pkgs = import nixpkgs { inherit system; };
       in rec {
-        packages.agb-binutils = pkgs.stdenv.mkDerivation {
+        packages.binutils = pkgs.stdenv.mkDerivation {
           pname = "agb-binutils";
           version = "2.31-agb1";
           src = ./.;
           dontConfigure = true;
           buildPhase = ''make binutils-all prefix=$out'';
-          installPhase = ''make binutils-install prefix=$out'';
+          installPhase = ''make binutils-install-strip prefix=$out'';
           buildInputs = [ pkgs.zlib ];
         };
 
-        defaultPackage = packages.agb-binutils;
+        packages.gas = pkgs.stdenv.mkDerivation {
+          pname = "agb-gas";
+          version = "2.31-agb1";
+          src = ./.;
+          dontConfigure = true;
+          buildPhase = ''make gas-all prefix=$out'';
+          installPhase = ''make gas-install-strip prefix=$out'';
+          buildInputs = [ pkgs.zlib ];
+        };
+
+        defaultPackage = packages.binutils;
       };
     in 
       flake-utils.lib.eachDefaultSystem flake;

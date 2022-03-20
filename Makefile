@@ -339,9 +339,9 @@ gas-all: gas-time gas-objs bfd-all libiberty-all
 gas-clean: gas-configure
 	@$(MAKE) -C gas clean $(SUBSUBMAKEFLAGS)
 gas-install: gas-all
-	@$(MAKE) -C gas install prefix=$(abspath $(prefix))/tools/binutils $(SUBSUBMAKEFLAGS)
+	@$(MAKE) -C gas install prefix=$(abspath $(prefix)) $(SUBSUBMAKEFLAGS)
 gas-install-strip: gas-all
-	@$(MAKE) -C gas install-strip prefix=$(abspath $(prefix))/tools/binutils $(SUBSUBMAKEFLAGS)
+	@$(MAKE) -C gas install-strip prefix=$(abspath $(prefix)) $(SUBSUBMAKEFLAGS)
 
 bfd-configure:
 	@echo "Making bfd";
